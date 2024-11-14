@@ -4,8 +4,8 @@ const TableViewHead = () => {
   return (
     <thead>
       <tr>
-        {headTitles.map((headTitle: string) => (
-          <th>{headTitle.toUpperCase()}</th>
+        {headTitles.map((headTitle: string, index: number) => (
+          <th key={index}>{headTitle.toUpperCase()}</th>
         ))}
       </tr>
     </thead>
