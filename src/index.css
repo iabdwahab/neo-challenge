@@ -5,3 +5,8 @@
 .container {
   @apply max-w-5xl mx-auto px-2;
 }
+
+th,
+td {
+  @apply border py-2 text-center;
+}
