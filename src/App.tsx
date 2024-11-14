@@ -1,9 +1,11 @@
-function App() {
+import Header from './components/Header';
+
+const App = () => {
   return (
-    <>
-      <p className="bg-black text-white">TEST TAILWIND</p>
-    </>
+    <div>
+      <Header />
+    </div>
   );
-}
+};
 
 export default App;
