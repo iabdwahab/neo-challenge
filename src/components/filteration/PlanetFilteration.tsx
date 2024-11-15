@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext } from 'react';
+import { useContext } from 'react';
 import { ViewedDataContext } from '../../contexts/ViewedDataContext';
 import { ApiDataContext } from '../../contexts/ApiDataContext';
 import { objectInterface } from '../../interfaces_types/interfaces_types';
