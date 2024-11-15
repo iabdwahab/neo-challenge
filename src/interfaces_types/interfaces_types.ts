@@ -8,3 +8,8 @@ export interface objectInterface {
     };
   };
 }
+
+export interface viewedDataContextInterface {
+  viewedData: objectInterface[];
+  setViewedData: Function;
+}

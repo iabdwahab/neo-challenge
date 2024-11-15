@@ -6,9 +6,11 @@ import { ApiDataContext } from './contexts/ApiDataContext';
 import ViewSwitcher from './components/view_switcher/ViewSwitcher';
 import { ViewTypeContext } from './contexts/ViewTypeContext';
 import ChartView from './components/chart_view/ChartView';
+import { ViewedDataContext } from './contexts/ViewedDataContext';
 
 const App = () => {
   const [apiData, setApiData] = useState([]);
+  const [viewedData, setViewedData] = useState([]);
   const [viewType, setViewType] = useState('table');
 
   useEffect(() => {
@@ -20,6 +22,7 @@ const App = () => {
       .then((res) => res.json())
       .then((result) => {
         setApiData(result.near_earth_objects);
+        setViewedData(result.near_earth_objects);
       });
   }, []);
 
@@ -28,17 +31,19 @@ const App = () => {
       <Header />
       <div className="container py-6">
         <ApiDataContext.Provider value={apiData}>
-          <div>
-            <Filteration />
-          </div>
-
-          <ViewTypeContext.Provider value={{ viewType, setViewType }}>
-            <div className="my-5">
-              <ViewSwitcher />
+          <ViewedDataContext.Provider value={{ viewedData, setViewedData }}>
+            <div>
+              <Filteration />
             </div>
-          </ViewTypeContext.Provider>
 
-          <div>{viewType === 'table' ? <TableView /> : <ChartView />}</div>
+            <ViewTypeContext.Provider value={{ viewType, setViewType }}>
+              <div className="my-5">
+                <ViewSwitcher />
+              </div>
+            </ViewTypeContext.Provider>
+
+            <div>{viewType === 'table' ? <TableView /> : <ChartView />}</div>
+          </ViewedDataContext.Provider>
         </ApiDataContext.Provider>
       </div>
     </div>

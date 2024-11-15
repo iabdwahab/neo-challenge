@@ -1,14 +1,14 @@
 import TableViewBodyTr from './TableViewBodyTr';
 import { useContext } from 'react';
-import { ApiDataContext } from '../../contexts/ApiDataContext';
 import { objectInterface } from '../../interfaces_types/interfaces_types';
+import { ViewedDataContext } from '../../contexts/ViewedDataContext';
 
 const TableViewBody = () => {
-  const apiData: objectInterface[] = useContext(ApiDataContext);
+  const { viewedData } = useContext(ViewedDataContext);
 
   return (
     <tbody>
-      {apiData.map((object: objectInterface) => {
+      {viewedData.map((object: objectInterface) => {
         return <TableViewBodyTr key={object.id} object={object} />;
       })}
     </tbody>
