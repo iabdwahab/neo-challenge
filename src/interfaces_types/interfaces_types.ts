@@ -16,3 +16,5 @@ export interface viewedDataContextInterface {
   viewedData: objectInterface[];
   setViewedData: Function;
 }
+
+export type visualizedDataType = [string, number | string, number | string][];

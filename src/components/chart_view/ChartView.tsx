@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { ViewedDataContext } from '../../contexts/ViewedDataContext';
 import Chart from 'react-google-charts';
-import { objectInterface } from '../../interfaces_types/interfaces_types';
+import { objectInterface, visualizedDataType } from '../../interfaces_types/interfaces_types';
 
 const ChartView = () => {
   const { viewedData } = useContext(ViewedDataContext);
 
-  const visualizedData: [string, number | string, number | string][] = [['Object', 'Min Diameter', 'Max Diameter']];
+  const visualizedData: visualizedDataType = [['Object', 'Min Diameter', 'Max Diameter']];
 
   viewedData.forEach((object: objectInterface) => {
     const minDiameter = object.estimated_diameter.kilometers.estimated_diameter_min;
