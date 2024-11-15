@@ -8,7 +8,7 @@ import { ViewTypeContext } from './contexts/ViewTypeContext';
 import ChartView from './components/chart_view/ChartView';
 
 const App = () => {
-  const [apiData, setApiData] = useState({});
+  const [apiData, setApiData] = useState([]);
   const [viewType, setViewType] = useState('table');
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const App = () => {
     fetch('https://api.jsonsilo.com/public/ef6864ab-1bd7-4b74-a232-4d4ebeda4d6d')
       .then((res) => res.json())
       .then((result) => {
-        setApiData(result);
+        setApiData(result.near_earth_objects);
       });
   }, []);
 
