@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Filteration from './components/filteration/Filteration';
 import Header from './components/Header';
 import TableView from './components/table_view/TableView';
