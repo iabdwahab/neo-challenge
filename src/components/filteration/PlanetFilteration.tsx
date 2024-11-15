@@ -5,6 +5,10 @@ import { objectInterface } from '../../interfaces_types/interfaces_types';
 
 const planets: planetObjectType[] = [
   {
+    planetName: 'All',
+    planetValue: '',
+  },
+  {
     planetName: 'Earth',
     planetValue: 'earth',
   },
@@ -36,13 +40,17 @@ const PlanetFilteration = () => {
   const { setViewedData } = useContext(ViewedDataContext);
 
   function filterByPlanet(value: string) {
-    const filtered = apiData.filter((object: objectInterface) => {
-      const objectOrbitingBody = object.close_approach_data[0].orbiting_body.toLowerCase();
+    if (value !== '') {
+      const filtered = apiData.filter((object: objectInterface) => {
+        const objectOrbitingBody = object.close_approach_data[0].orbiting_body.toLowerCase();
 
-      return objectOrbitingBody === value;
-    });
+        return objectOrbitingBody === value;
+      });
 
-    setViewedData(filtered);
+      setViewedData(filtered);
+    } else {
+      setViewedData(apiData);
+    }
   }
 
   return (
