@@ -3,8 +3,8 @@ import TableViewHead from './TableViewHead';
 
 const TableView = () => {
   return (
-    <div>
-      <table className="border w-full">
+    <div className="overflow-scroll">
+      <table className="border w-full table-auto">
         <TableViewHead />
         <TableViewBody />
       </table>

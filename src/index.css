@@ -8,5 +8,5 @@
 
 th,
 td {
-  @apply border py-2 text-center;
+  @apply border py-2;
 }

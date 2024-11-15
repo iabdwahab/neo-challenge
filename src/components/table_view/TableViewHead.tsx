@@ -5,7 +5,9 @@ const TableViewHead = () => {
     <thead>
       <tr>
         {headTitles.map((headTitle: string, index: number) => (
-          <th key={index}>{headTitle.toUpperCase()}</th>
+          <th key={index} className="text-start px-4 py-3 bg-black text-white">
+            {headTitle.toUpperCase()}
+          </th>
         ))}
       </tr>
     </thead>
