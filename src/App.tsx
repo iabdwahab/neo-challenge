@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Filteration from './components/filteration/Filteration';
 import Header from './components/Header';
 import TableView from './components/table_view/TableView';
 import { ApiDataContext } from './contexts/ApiDataContext';
+import ViewSwitcher from './components/view_switcher/ViewSwitcher';
+import { ViewTypeContext } from './contexts/ViewTypeContext';
+import ChartView from './components/chart_view/ChartView';
 
 const App = () => {
   const [apiData, setApiData] = useState({});
+  const [viewType, setViewType] = useState('table');
 
   useEffect(() => {
     // This is NASA API Link, but I reached the limit of requests.
@@ -27,9 +31,14 @@ const App = () => {
           <div>
             <Filteration />
           </div>
-          <div className="mt-5">
-            <TableView />
-          </div>
+
+          <ViewTypeContext.Provider value={{ viewType, setViewType }}>
+            <div className="my-5">
+              <ViewSwitcher />
+            </div>
+          </ViewTypeContext.Provider>
+
+          <div>{viewType === 'table' ? <TableView /> : <ChartView />}</div>
         </ApiDataContext.Provider>
       </div>
     </div>
